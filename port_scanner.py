@@ -8,10 +8,6 @@ import threading
 import time
 from datetime import datetime
 
-# implement pip as a subprocess:
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
-'pyfiglet', ])
-
 #banner
 ascii_banner = pyfiglet.figlet_format("Port_Scanner")
 print(ascii_banner)
@@ -83,3 +79,5 @@ def check_ports(ip, port, r=1):
 for port in ports:
     thd = threading.Thread(target=check_ports(ip, port,), args=(port, ))
     thd.start()
+   
+print("Scanning Finished at: " + str(datetime.now()))
